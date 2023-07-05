@@ -1,0 +1,15 @@
+.user {
+  background-color: beige;
+  margin: 4px;
+  padding: 8px 8px 8px 8px;
+  border-radius: 8px;
+}
+
+.user .field span:first-of-type {
+  color: red;
+ font-weight: bold;
+}
+
+.user .field span {
+  color: blue;
+}
