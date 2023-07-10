@@ -15,5 +15,11 @@ export class HomeComponent implements OnInit {
       .subscribe(data => this.usersData = data)
   }
 
+  selectUser(user: User) {
+    this.selectedUser = user
+  }
+
   usersData: User[] = [];
+
+  selectedUser: User | null = null
 }
