@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PeopleService, User} from "../people.service";
-
+import { Observable } from 'rxjs';
+import {Store} from "@ngrx/store";
+import {State} from "../users/users.reducer";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +10,8 @@ import {PeopleService, User} from "../people.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private peopleService: PeopleService) {
+  constructor(private peopleService: PeopleService, private store: Store<{ users: State }>) {
+    this.otherSelectedUser$ = store.select("users")
   }
   ngOnInit(): void {
     this.peopleService.getUsers()
@@ -22,4 +25,8 @@ export class HomeComponent implements OnInit {
   usersData: User[] = [];
 
   selectedUser: User | null = null
+
+  // otherSelectedUser: User | null = null
+
+  otherSelectedUser$: Observable<State>
 }

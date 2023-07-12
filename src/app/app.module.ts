@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 import { SelectedUserComponent } from './selected-user/selected-user.component';
+import { StoreModule } from '@ngrx/store';
+import {usersReducer} from "./users/users.reducer";
+import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,14 @@ import { SelectedUserComponent } from './selected-user/selected-user.component';
     HomeComponent,
     UsersComponent,
     UserComponent,
-    SelectedUserComponent
+    SelectedUserComponent,
+    UserWrapperComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ users: usersReducer }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

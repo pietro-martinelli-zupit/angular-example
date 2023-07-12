@@ -1,3 +1,10 @@
 <app-users [users]="usersData" (onSelect)="selectUser($event)"></app-users>
 <div>Selected:</div>
-<app-selected-user [user]="selectedUser" *ngIf="selectedUser"></app-selected-user>
+<div style="width: 100%;">
+  <div style="float:left; width: 50%">
+    <app-selected-user [user]="selectedUser" *ngIf="selectedUser"></app-selected-user>
+  </div>
+  <div style="float:right;">
+    <app-user-wrapper [user]="(otherSelectedUser$ | async)?.selectedUser!"></app-user-wrapper>
+  </div>
+</div>
