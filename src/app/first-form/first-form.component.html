@@ -1,0 +1,23 @@
+<div class="first-form">
+  <label for="firstName">Name: </label>
+  <input id="firstName" type="text" [formControl]="firstName">
+
+  <label for="username">username: </label>
+  <input id="username" type="text" [formControl]="username">
+
+  <p>
+    First Name: {{ firstName.value }}
+  </p>
+
+  <p>
+    First Name: {{ username.value }} <---> {{ username.valueChanges | async }}
+  </p>
+
+  <div>
+    <button (click)="reset()">Reset</button>
+    <button (click)="setPietro()">pietrom</button>
+  </div>
+  <div>
+    <button (click)="showValues()">Show values</button>
+  </div>
+</div>

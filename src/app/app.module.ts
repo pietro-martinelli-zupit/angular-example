@@ -15,6 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { ThirdComponent } from './third/third.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { FirstFormComponent } from './first-form/first-form.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { ThirdComponent } from './third/third.component';
     NavbarComponent,
     FirstComponent,
     SecondComponent,
-    ThirdComponent
+    ThirdComponent,
+    FirstFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ users: usersReducer }, {})
+    StoreModule.forRoot({ users: usersReducer }, {}),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
