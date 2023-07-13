@@ -5,6 +5,20 @@
   <label for="username">username: </label>
   <input id="username" type="text" [formControl]="username">
 
+  <div *ngIf="username.invalid && (username.dirty || username.touched)"
+       class="alert alert-danger">
+
+    <div *ngIf="username.errors?.['required']">
+      Name is required.
+    </div>
+    <div *ngIf="username.errors?.['minlength']">
+      Name must be at least 5 characters long.
+    </div>
+    <div *ngIf="username.errors?.['invalidUsername']">
+      Name cannot be 'invalid'.
+    </div>
+  </div>
+
   <p>
     First Name: {{ firstName.value }}
   </p>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {Component, Input} from '@angular/core';
+import {AbstractControl, FormControl, ValidationErrors, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-first-form',
@@ -9,7 +9,11 @@ import {FormControl} from "@angular/forms";
 export class FirstFormComponent {
   firstName = new FormControl('');
 
-  username = new FormControl('');
+  username = new FormControl('', [
+    Validators.required,
+    Validators.minLength(5),
+    this.invalidUsernameValidator
+  ]);
 
   reset() {
     this.firstName.reset()
@@ -23,5 +27,10 @@ export class FirstFormComponent {
 
   showValues() {
     alert(`First name: ${this.firstName.value}. Username: ${this.username.value}`)
+  }
+
+  invalidUsernameValidator(ctrl : AbstractControl) : ValidationErrors | null {
+    if(ctrl.value == 'invalid') return { invalidUsername: { value: ctrl.value }}
+    return null
   }
 }
