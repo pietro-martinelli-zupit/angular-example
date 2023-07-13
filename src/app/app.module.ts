@@ -11,6 +11,10 @@ import { SelectedUserComponent } from './selected-user/selected-user.component';
 import { StoreModule } from '@ngrx/store';
 import {usersReducer} from "./users/users.reducer";
 import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FirstComponent } from './first/first.component';
+import { SecondComponent } from './second/second.component';
+import { ThirdComponent } from './third/third.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
     UsersComponent,
     UserComponent,
     SelectedUserComponent,
-    UserWrapperComponent
+    UserWrapperComponent,
+    NavbarComponent,
+    FirstComponent,
+    SecondComponent,
+    ThirdComponent
   ],
   imports: [
     BrowserModule,
